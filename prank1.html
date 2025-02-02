@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        #prankButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pilih tombol yang benar!</h1>
+        <button id="prankButton">Klik Saya</button>
+        <button id="fakeButton">Klik Saya</button>
+    </div>
+    
+    <script>
+        const prankButton = document.getElementById("prankButton");
+        const fakeButton = document.getElementById("fakeButton");
+        
+        function moveButton(button) {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+        
+        prankButton.addEventListener("mouseover", () => moveButton(prankButton));
+        fakeButton.addEventListener("click", () => {
+            alert("Oops, salah tombol! Coba lagi :P");
+        });
+        prankButton.addEventListener("click", () => {
+            alert("Kamu menang! Tapi tidak ada hadiah hehe :P");
+        });
+    </script>
+</body>
+</html>
